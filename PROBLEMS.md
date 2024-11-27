@@ -22,15 +22,15 @@ Language Model?
 
 - Evaluating anything is quite hard.
 - Evaluating LLMs is quite hard too.
-- In text books there are two main approaches:
--- Automated Evaluation
---- Calculated scores of evaluation point
---- BERT, ROUGE, BLUE are some of them.
+- Two common ways to evaluate anything:
+    - Automated Evaluation
+        - Calculated scores of evaluation point
+        - BERT, ROUGE, BLUE are some of them.
 
--- Human Evaluation
---- Response evaluations
---- Consistency evaluations
---- Correctness evaluations
-
-- Benchmark datasets specific to the use case to compare LLMs.
-- Token usage metrics might be used to compare LLMs.
+    - Human Evaluation
+        - Response evaluations
+        - Consistency evaluations
+    
+    - Correctness evaluations
+    - Benchmark datasets specific to the use case to compare LLMs.
+    - Token usage metrics might be used to compare LLMs.
