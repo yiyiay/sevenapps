@@ -59,22 +59,22 @@ The `--reload` flag enables auto-reloading on code changes (recommended for deve
 
 ## Project Structure
 
-Everything lies under app/
-app/config.config.py # Application configuration
-app/middlewares/file_validation.py # Does file type checking
-app/middlewares/rate_limit.py # Does rate limiting
-app/routers/file_router.py # API routes /** @todo : must seperate chat from file
-app/controllers/file_controller.py # Request to file layer
-app/managers/pdf_manager.py # File data sync after crashes
-app/services/file_service.py # File to OS layer
-app/service/gemini_service.py # File to Gemini layer
-app/utils/pdf_extractor.py # File reads
-app/main.py # Application entry point
-uploads/ # Uploaded files will appear here
-.gitignore # Ignored files defined
-pdf_metadata.json # Check pdf_manager.py
-requirements.txt # For builds with same packages
-README.md # Description of how
+- Everything lies under app/
+- app/config.config.py # Application configuration
+- app/middlewares/file_validation.py # Does file type checking
+- app/middlewares/rate_limit.py # Does rate limiting
+- app/routers/file_router.py # API routes /** @todo : must seperate chat from file
+- app/controllers/file_controller.py # Request to file layer
+- app/managers/pdf_manager.py # File data sync after crashes
+- app/services/file_service.py # File to OS layer
+- app/service/gemini_service.py # File to Gemini layer
+- app/utils/pdf_extractor.py # File reads
+- app/main.py # Application entry point
+- uploads/ # Uploaded files will appear here
+- .gitignore # Ignored files defined
+- pdf_metadata.json # Check pdf_manager.py
+- requirements.txt # For builds with same packages
+- README.md # Description of how
 
 ## API Documentation
 
