@@ -26,10 +26,8 @@ class GeminiService:
         
     def _setup_client(self) -> None:
         try:
-            # Configure the API key first
             genai.configure(api_key=self.config.API_KEY)
             
-            # Create the model
             self.client = genai.GenerativeModel(
                 model_name=self.model,
                 generation_config=self.generation_config

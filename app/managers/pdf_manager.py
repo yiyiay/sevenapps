@@ -104,7 +104,7 @@ class PDFStateManager:
             self.pdfs[pdf_id] = PDFDocument(
                 pdf_id=pdf_id,
                 filename=filename,
-                content=None,  # Don't store content in memory
+                content=None,  # Don't store content in memory as it is required
                 path=path,
                 extracted_text=extracted_text,
                 created_at=datetime.now()

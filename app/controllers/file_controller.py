@@ -80,7 +80,7 @@ class FileController:
 
     async def process_chat(self, pdf_id: str, message: str) -> dict:
         try:
-            # Check cache first
+            # Check cache
             cached_response = self._get_cached_response(pdf_id, message)
             if cached_response:
                 return {

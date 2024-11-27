@@ -7,10 +7,7 @@ class FileValidationMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next: Callable) -> Response:
         if request.url.path == "/v1/pdf" and request.method == "POST":
             try:
-                # Store the file in memory
-                body = await request.body()
-                
-                # Create a new request with the file in the form data
+                body = await request.body()              
                 request._body = body
 
                 form = await request.form() # Consumes the body

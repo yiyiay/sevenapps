@@ -21,7 +21,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Validate critical configurations
 if not settings.gemini_config.API_KEY:
     logger.warning("GEMINI_API_KEY is not set. Some features may not work properly.")
 
@@ -40,9 +39,7 @@ except Exception as e:
     logger.error(f"Failed to create upload folder: {e}")
     raise
 
-# Add middlewares
 app.add_middleware(FileValidationMiddleware)
 app.add_middleware(RateLimitMiddleware)
 
-# Include routers
 app.include_router(router)

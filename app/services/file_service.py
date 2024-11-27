@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 class FileService:
     def __init__(self):
-        self.state_manager = PDFStateManager()  # Will return singleton instance
+        self.state_manager = PDFStateManager()
         self.pdf_extractor = PDFExtractor()
 
     async def save_file(self, file: UploadFile) -> dict:
@@ -23,7 +23,6 @@ class FileService:
             pdf_id = str(uuid.uuid4())
             contents = await file.read()
             
-            # Extract text from PDF
             extracted_text = self.pdf_extractor.extract_text(contents)
             
             extension = file.filename.split('.')[-1]
@@ -38,7 +37,7 @@ class FileService:
                 filename=file.filename,
                 content=contents,
                 path=file_location,
-                extracted_text=extracted_text  # Add extracted text to storage
+                extracted_text=extracted_text
             )
             logger.info(f"File saved successfully: {file.filename} (ID: {pdf_id})")
             

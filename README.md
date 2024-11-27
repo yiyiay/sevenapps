@@ -70,6 +70,14 @@ The `--reload` flag enables auto-reloading on code changes (recommended for deve
 - app/service/gemini_service.py # File to Gemini layer
 - app/utils/pdf_extractor.py # File reads
 - app/main.py # Application entry point
+- test # Tests lies here
+- test/integration # Basic integration test
+- test/confext.py # Data for tests
+- test/test_chat.py # test chat
+- test/test_file_upload.pt # test file upload
+- test/test_utils.py # test utils
+- setup.py # Package maker
+- pytest.ini # test entry file
 - uploads/ # Uploaded files will appear here
 - .gitignore # Ignored files defined
 - pdf_metadata.json # Check pdf_manager.py
@@ -109,6 +117,26 @@ Response in JSON
 "response": "Based on the document content, the main topic is...",
 "timestamp": "2024-03-14T12:01:00"
 }
+
+## Tests
+# Run all tests (Assuming in venv)
+pytest
+
+# Run with coverage report
+pytest --cov=app tests/
+
+# Run specific test file
+pytest tests/test_file_upload.py
+
+# Run tests with detailed output
+pytest -v
+
+# To run the tests locally, you can use:
+pytest tests/unit/ for unit tests
+pytest tests/integration/ -m integration for integration tests
+pytest for all tests
+
+# Github Actions is just for cosmetics of it.
 
 
 ## Problems to tackle (Bonus Points)
