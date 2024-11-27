@@ -95,9 +95,8 @@ Response in JSON
 "upload_time": "2024-03-14T12:00:00"
 }
 
-
 ### Chat About a PDF
-Request using CURL (-H option is optional)
+Request using CURL (-H option is must)
 curl -X POST "http://localhost:8000/v1/chat/{pdf_id}" \
 -H "accept: application/json" \
 -H "Content-Type: application/json" \
