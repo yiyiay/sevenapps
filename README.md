@@ -57,7 +57,7 @@ The `--reload` flag enables auto-reloading on code changes (recommended for deve
 - Configurable upload directory
 - Logging system
 
-## Project Structure
+## Project Overview
 
 - Everything lies under app/
 - app/config.config.py # Application configuration
@@ -109,3 +109,7 @@ Response in JSON
 "response": "Based on the document content, the main topic is...",
 "timestamp": "2024-03-14T12:01:00"
 }
+
+
+## Problems to tackle (Bonus Points)
+Problems are answered in a a seperate file called PROBLEMS.md to not distract file contents.

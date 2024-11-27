@@ -57,33 +57,27 @@ class GeminiService:
         try:
             self._check_rate_limit()
             
-            # Add context about the PDF to the prompt
+            # Format relevant chunks into context
+            relevant_chunks = pdf_metadata.get('relevant_chunks', [])
+            chunks_text = "\n\n".join([
+                f"Relevant Passage {i+1}:\n{chunk}" 
+                for i, chunk in enumerate(relevant_chunks)
+            ])
+            
+            # Build prompt with RAG context
             context = f"""Context: This conversation is about a PDF document with the following metadata:
             File ID: {pdf_metadata.get('pdf_id')}
             Filename: {pdf_metadata.get('filename')}
-            Text Preview: {pdf_metadata.get('text_preview', 'Not available')}
             
-            User Question: {message}"""
+            Here are the most relevant passages from the document:
+            {chunks_text}
+            
+            Please use the above passages to answer the following question:
+            {message}
+            
+            If the answer cannot be found in the provided passages, please say so."""
 
-            # Create the model
-            generation_config = {
-                "temperature": 1,
-                "top_p": 0.95,
-                "top_k": 40,
-                "max_output_tokens": 8192,
-                "response_mime_type": "text/plain",
-            }
-
-            model = genai.GenerativeModel(
-                model_name="gemini-1.5-flash",
-                generation_config=generation_config,
-            )            
-
-            chat_session = model.start_chat(
-                history=[
-                ]
-            )
-
+            chat_session = self.client.start_chat(history=[])
             response = chat_session.send_message(context)
             
             self._request_timestamps.append(datetime.now())

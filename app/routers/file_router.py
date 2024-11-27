@@ -51,3 +51,8 @@ async def chat_with_pdf(
         return await file_controller.process_chat(pdf_id, message.message)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@router.delete("/chat/{pdf_id}/cache")
+async def clear_chat_cache(pdf_id: str):
+    """Clear cached responses for a specific PDF"""
+    return await file_controller.clear_chat_cache(pdf_id)
